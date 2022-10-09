@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Project Tracker</title>
+</head>
+<body>
+    <div class="jumbotron  text-center">
+        <h1 class="display-4">Project Tracker</h1>
+        <h2 class="display-5">Current Time & Date</h2>
+        <h2 class="display-5" id="formattedDateTime"></h2>
+    </div>
+    <div class="container-fluid  ">
+        <div class="row  ">
+            <div class="col-3">    <!-- contains the instructions a card   -->
+                <div class="card" >
+                    <div class="card-body d-flex flex-column justify-content-between ">
+                        <h3 class="card-title ">Instructions</h3>
+                        <p class="card-text">Click the button below to open a form and provide information for the following:</p>
+                        <ul class="list-group ">
+                            <li class="list-group-item">Project Name</li>
+                            <li class="list-group-item">Project Type</li>
+                            <li class="list-group-item">Due Date</li>
+                            <li class="list-group-item">Hourly Rate</li>
+                        </ul>
+                        <button class="card-link btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">Add Project</button>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-9">     <!-- contains the project table   -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Project Type</th>
+                            <th scope="col">Hourly Rate ($)</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Days Until Due Date</th>
+                            <th scope="col">Potential Total Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Roger</td>
+                            <td>Web App</td>
+                            <td>50</td>
+                            <td>11/25/2022</td>
+                            <td>45</td>
+                            <td>$45,000</td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" 
+        id="staticBackdrop" 
+        data-backdrop="static" 
+        data-keyboard="false" 
+        tabindex="-1" 
+        aria-labelledby="staticBackdropLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add a new project.</h5>
+                    <button type="button" 
+                            class="close" 
+                            data-dismiss="modal" 
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName">Project Name</label>
+                            <input type="text" class="form-control" id="projectName" placeholder="Enter the project's name">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectType">Project Type</label>
+                            <select class="form-control" id="projectType">
+                                <option selected disabled>Pick one...</option>
+                                <option value="Web Application (Front End)">Web Application (Front End)</option>
+                                <option value="Web Application (Back End)">Web Application (Back End)</option>
+                                <option value="Web Application (Full Stack)">Web Application (Full Stack)</option>
+                                <option value="Mobile Application">Mobile Application</option>
+                                <option value="Print Campaign">Print Campaign</option>
+                                <option value="Digital Marketing Campaign">Digital Marketing Campaign</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hourlyRate">Hourly Rate ($)</label>
+                            <input type="number" class="form-control" id="hourlyRate" placeholder="$">
+                        </div>
+                        <div class="form-group">
+                            <label for="dueDate">Due Date</label>
+                            <input type="number" class="form-control" id="dueDate" placeholder="When is the project due?">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit Project Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    
+</body>
+</html>
