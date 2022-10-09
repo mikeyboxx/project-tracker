@@ -16,7 +16,7 @@
         <h2 class="display-5">Current Time & Date</h2>
         <h2 class="display-5" id="formattedDateTime"></h2>
     </div>
-    <div class="container-fluid  ">
+    <div class="container-fluid ">
         <div class="row  ">
             <div class="col-3">    <!-- contains the instructions a card   -->
                 <div class="card" >
@@ -29,7 +29,12 @@
                             <li class="list-group-item">Due Date</li>
                             <li class="list-group-item">Hourly Rate</li>
                         </ul>
-                        <button class="card-link btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">Add Project</button>
+                        <button class="card-link btn btn-primary " 
+                                id="btnAddProject"
+                                data-toggle="modal" 
+                                data-target="#staticBackdrop">
+                                Add Project
+                        </button>
                     </div>
                 </div>    
             </div>
@@ -43,6 +48,7 @@
                             <th scope="col">Due Date</th>
                             <th scope="col">Days Until Due Date</th>
                             <th scope="col">Potential Total Earnings</th>
+                            <th scope="col"> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +59,7 @@
                             <td>11/25/2022</td>
                             <td>45</td>
                             <td>$45,000</td>
+                            <td><button type="button" class="btn btn-link">X</button></td>
                         </tr>
                     </tbody>
                   </table>
@@ -78,14 +85,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form type="submit"  id="formSubmitProject">
                         <div class="form-group">
                             <label for="projectName">Project Name</label>
-                            <input type="text" class="form-control" id="projectName" placeholder="Enter the project's name">
+                            <input type="text" class="form-control" id="projectName" placeholder="Enter the project's name" required>
                         </div>
                         <div class="form-group">
                             <label for="projectType">Project Type</label>
-                            <select class="form-control" id="projectType">
+                            <select class="form-control" id="projectType" required>
                                 <option selected disabled>Pick one...</option>
                                 <option value="Web Application (Front End)">Web Application (Front End)</option>
                                 <option value="Web Application (Back End)">Web Application (Back End)</option>
@@ -97,19 +104,29 @@
                         </div>
                         <div class="form-group">
                             <label for="hourlyRate">Hourly Rate ($)</label>
-                            <input type="number" class="form-control" id="hourlyRate" placeholder="$">
+                            <input type="number" 
+                                    class="form-control" 
+                                    id="hourlyRate" 
+                                    placeholder="$"
+                                    min="1"
+                                    max="1000" 
+                                    required>
                         </div>
                         <div class="form-group">
                             <label for="dueDate">Due Date</label>
-                            <input type="number" class="form-control" id="dueDate" placeholder="When is the project due?">
+                            <input type="date" 
+                                    class="form-control" 
+                                    id="dueDate" 
+                                    placeholder="When is the project due?" 
+                                    required>
                         </div>
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" id="btnSubmbitProject" value="Submit Project Info"></button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit Project Info</button>
-                </div>
+                
             </div>
         </div>
     </div>

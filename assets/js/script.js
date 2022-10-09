@@ -11,4 +11,11 @@ function renderCurrentDateTime(){
 renderCurrentDateTime();
 
 
+$('#formSubmitProject').on('submit', (event)=>{
+    event.preventDefault();
+    validateInput();
+    renderProjectTable();
+})
+
+
 // console.log(getCurrentDateFormatted());
