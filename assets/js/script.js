@@ -23,12 +23,8 @@ function renderProjectTable(arrProjectList){
     $('#tblProjectList tbody').empty();   // empty out all HTML    i.e. el.innerHTML = ''
 
     for(let i=0; i<arrProjectList.length;i++){
-        let diffDays = 0; 
-        if(arrProjectList[i].dueDate !== moment().format('MM/DD/YYYY')){  // if due date not = current date then calc days difference
-            // add 1 to result since moment.js gives erroenous results
-            diffDays = moment(arrProjectList[i].dueDate, 'MM/DD/YYYY').diff(moment(), 'days') + 1;  
-        }
-
+        // calculate date difference in days and convert result to a whole number
+        let diffDays = Math.abs(Math.ceil(moment(arrProjectList[i].dueDate, 'MM/DD/YYYY').diff(moment(), 'days', true)));  
         let rateCalc = arrProjectList[i].rate * 8 * diffDays;  // calculate potential earnings
         let rateCalcFormatted = '$' + new Intl.NumberFormat({style: 'currency'}).format(rateCalc); // format with $ and commas
 
