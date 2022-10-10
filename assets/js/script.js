@@ -80,11 +80,3 @@ function start(){
 }
 
 start();
-
-
-
-
-
-
-
-// console.log(getCurrentDateFormatted());
