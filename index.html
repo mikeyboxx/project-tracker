@@ -39,7 +39,7 @@
                 </div>    
             </div>
             <div class="col-9">     <!-- contains the project table   -->
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="tblProjectList">
                     <thead>
                         <tr>
                             <th scope="col">Project Name</th>
@@ -52,15 +52,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>Roger</td>
                             <td>Web App</td>
                             <td>50</td>
                             <td>11/25/2022</td>
                             <td>45</td>
                             <td>$45,000</td>
-                            <td><button type="button" class="btn btn-link">X</button></td>
-                        </tr>
+                            <td><button type="button" class="btn btn-link" value="X"></button></td>
+                        </tr> -->
                     </tbody>
                   </table>
             </div>
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label for="projectType">Project Type</label>
                             <select class="form-control" id="projectType" required>
-                                <option selected disabled>Pick one...</option>
+                                <option selected disabled value="">Pick one...</option>
                                 <option value="Web Application (Front End)">Web Application (Front End)</option>
                                 <option value="Web Application (Back End)">Web Application (Back End)</option>
                                 <option value="Web Application (Full Stack)">Web Application (Full Stack)</option>
