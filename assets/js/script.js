@@ -28,14 +28,18 @@ function renderProjectTable(arrProjectList){
             // add 1 to result since moment.js gives erroenous results
             diffDays = moment(arrProjectList[i].dueDate, 'MM/DD/YYYY').diff(moment(), 'days') + 1;  
         }
+
+        let rateCalc = arrProjectList[i].rate * 8 * diffDays;  // calculate potential earnings
+        let rateCalcFormatted = '$' + new Intl.NumberFormat({style: 'currency'}).format(rateCalc); // format with $ and commas
+
         $('#tblProjectList tbody')
             .append($('<tr>').attr('id',`${i}`)
                 .append($('<td>').text(arrProjectList[i].name))
                 .append($('<td>').text(arrProjectList[i].type))
-                .append($('<td>').text(arrProjectList[i].rate))
+                .append($('<td>').text('$' + arrProjectList[i].rate))
                 .append($('<td>').text(arrProjectList[i].dueDate))
                 .append($('<td>').text(diffDays))
-                .append($('<td>').text(arrProjectList[i].rate * 8 * diffDays))  // calculate potential earnings
+                .append($('<td>').text(rateCalcFormatted))  
                 .append($('<td>')
                     .append($('<button>')
                         .addClass('btn btn-link')
